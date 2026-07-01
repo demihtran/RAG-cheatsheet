@@ -412,12 +412,12 @@
         </div>
         <div class="body">
           <div class="flow">
-            <div class="step"><b>1. Load</b>PDF, HTML, Markdown, DB, ticket, Slack, API.</div>
-            <div class="step"><b>2. Clean</b>Bỏ boilerplate, nav, duplicate, OCR noise.</div>
-            <div class="step"><b>3. Chunk</b>Chia tài liệu thành đơn vị vừa đủ ngữ cảnh.</div>
-            <div class="step"><b>4. Embed</b>Biến chunk/query thành vector cùng không gian.</div>
-            <div class="step"><b>5. Retrieve</b>Tìm <code>top_k</code>, filter metadata, rerank.</div>
-            <div class="step"><b>6. Generate</b>Trả lời dựa trên context, trích nguồn, từ chối khi thiếu bằng chứng.</div>
+            <div class="step"><b>1. Load</b> PDF, HTML, Markdown, DB, ticket, Slack, API.</div>
+            <div class="step"><b>2. Clean</b> Bỏ boilerplate, nav, duplicate, OCR noise.</div>
+            <div class="step"><b>3. Chunk</b> Chia tài liệu thành đơn vị vừa đủ ngữ cảnh.</div>
+            <div class="step"><b>4. Embed</b> Biến chunk/query thành vector cùng không gian.</div>
+            <div class="step"><b>5. Retrieve</b> Tìm <code>top_k</code>, filter metadata, rerank.</div>
+            <div class="step"><b>6. Generate</b> Trả lời dựa trên context, trích nguồn, từ chối khi thiếu bằng chứng.</div>
           </div>
           <div class="note">
             <p><b>Ý chính:</b> model không "biết" tài liệu của bạn. RAG đưa đoạn liên quan vào context để model trả lời có căn cứ.</p>
@@ -436,10 +436,10 @@
         </div>
         <div class="body">
           <ul class="mono-list">
-            <li><b>Dùng RAG</b>Dữ liệu thay đổi, cần citation, cần quyền truy cập theo user, cần giảm hallucination.</li>
-            <li><b>Dùng fine-tune</b>Cần style/format/hành vi ổn định, không phải nhồi kiến thức private thường xuyên đổi.</li>
-            <li><b>Dùng long context</b>Tập tài liệu nhỏ, ít query, cần reasoning xuyên toàn bộ file, latency/cost chấp nhận được.</li>
-            <li><b>Kết hợp</b>Retrieve ít nhưng đúng, đưa vào context dài hơn, sau đó dùng eval để chọn cấu hình.</li>
+            <li><b>Dùng RAG</b> Dữ liệu thay đổi, cần citation, cần quyền truy cập theo user, cần giảm hallucination.</li>
+            <li><b>Dùng fine-tune</b> Cần style/format/hành vi ổn định, không phải nhồi kiến thức private thường xuyên đổi.</li>
+            <li><b>Dùng long context</b> Tập tài liệu nhỏ, ít query, cần reasoning xuyên toàn bộ file, latency/cost chấp nhận được.</li>
+            <li><b>Kết hợp</b> Retrieve ít nhưng đúng, đưa vào context dài hơn, sau đó dùng eval để chọn cấu hình.</li>
           </ul>
         </div>
       </article>
@@ -454,10 +454,10 @@
         </div>
         <div class="body">
           <div class="mini">
-            <div class="fact"><b>Normalize</b>Giữ heading, table, list, code block; bỏ header/footer lặp.</div>
+            <div class="fact"><b>Normalize</b> Giữ heading, table, list, code block; bỏ header/footer lặp.</div>
             <div class="fact"><b>Metadata</b><code>source</code>, <code>title</code>, <code>section</code>, <code>updated_at</code>, <code>owner</code>, <code>acl</code>.</div>
-            <div class="fact"><b>Deduplicate</b>Hash theo file và chunk để tránh context trùng.</div>
-            <div class="fact"><b>Version</b>Lưu version index để rollback và chạy regression eval.</div>
+            <div class="fact"><b>Deduplicate</b> Hash theo file và chunk để tránh context trùng.</div>
+            <div class="fact"><b>Version</b> Lưu version index để rollback và chạy regression eval.</div>
           </div>
           <pre class="language-python"><code class="language-python">import uuid
 from langchain_core.documents import Document
@@ -520,12 +520,12 @@ doc = Document(
         </div>
         <div class="body">
           <ul class="mono-list">
-            <li><b>Embedding model</b>Chọn theo ngôn ngữ, domain, dimension, cost, latency, max input.</li>
-            <li><b>Distance</b>Cosine, dot product, L2; normalize vector nếu metric yêu cầu.</li>
-            <li><b>ANN index</b>HNSW/IVF giúp query nhanh hơn brute force khi dữ liệu lớn.</li>
-            <li><b>Metadata filter</b>Lọc trước hoặc trong retrieval theo tenant, ACL, date, product, language.</li>
-            <li><b>Re-embed</b>Khi đổi model embedding, phải build index mới; không trộn vector khác model.</li>
-            <li><b>Freshness</b>Thiết kế incremental indexing, delete/update tombstone, background jobs.</li>
+            <li><b>Embedding model</b> Chọn theo ngôn ngữ, domain, dimension, cost, latency, max input.</li>
+            <li><b>Distance</b> Cosine, dot product, L2; normalize vector nếu metric yêu cầu.</li>
+            <li><b>ANN index</b> HNSW/IVF giúp query nhanh hơn brute force khi dữ liệu lớn.</li>
+            <li><b>Metadata filter</b> Lọc trước hoặc trong retrieval theo tenant, ACL, date, product, language.</li>
+            <li><b>Re-embed</b> Khi đổi model embedding, phải build index mới; không trộn vector khác model.</li>
+            <li><b>Freshness</b> Thiết kế incremental indexing, delete/update tombstone, background jobs.</li>
           </ul>
         </div>
       </article>
@@ -643,12 +643,12 @@ prompt_template = ChatPromptTemplate.from_messages([
         </div>
         <div class="body">
           <ul class="mono-list">
-            <li><b>Corrective RAG</b>Nếu retrieval yếu, tự đánh giá context rồi search lại.</li>
-            <li><b>Self-query</b>LLM biến câu hỏi thành query + metadata filters có cấu trúc.</li>
-            <li><b>Graph RAG</b>Dùng entity/relation khi câu hỏi cần liên kết nhiều tài liệu.</li>
-            <li><b>Router</b>Chọn index/tool khác nhau theo intent hoặc domain.</li>
-            <li><b>Context compression</b>Tóm/lọc chunk trước khi đưa vào prompt để giảm token.</li>
-            <li><b>Agentic RAG</b>Cho agent lặp search-read-answer khi câu hỏi nhiều bước.</li>
+            <li><b>Corrective RAG</b> Nếu retrieval yếu, tự đánh giá context rồi search lại.</li>
+            <li><b>Self-query</b> LLM biến câu hỏi thành query + metadata filters có cấu trúc.</li>
+            <li><b>Graph RAG</b> Dùng entity/relation khi câu hỏi cần liên kết nhiều tài liệu.</li>
+            <li><b>Router</b> Chọn index/tool khác nhau theo intent hoặc domain.</li>
+            <li><b>Context compression</b> Tóm/lọc chunk trước khi đưa vào prompt để giảm token.</li>
+            <li><b>Agentic RAG</b> Cho agent lặp search-read-answer khi câu hỏi nhiều bước.</li>
           </ul>
         </div>
       </article>
@@ -1030,7 +1030,17 @@ async def chat_stream(request: ChatRequest):
           </div>
         </div>
         <div class="body">
-          <pre class="language-python"><code class="language-python">from tenacity import retry, stop_after_attempt, wait_exponential
+          <pre class="language-python"><code class="language-python">import asyncio
+import logging
+from langchain_core.documents import Document
+from tenacity import retry, stop_after_attempt, wait_exponential
+
+logger = logging.getLogger(__name__)
+
+async def keyword_fallback(query: str) -> list[Document]:
+    # Replace with BM25, SQL full-text search, or a cached last-known-good index.
+    logger.warning("vector_retrieval_timeout", extra={"query": query})
+    return []
 
 # Retry chính sách tự động khi xảy ra lỗi API rate limit hoặc network
 @retry(
@@ -1043,8 +1053,8 @@ async def safe_retrieve_with_timeout(retriever, query: str):
         # Đặt strict timeout cho việc gọi vector database
         return await asyncio.wait_for(retriever.ainvoke(query), timeout=5.0)
     except asyncio.TimeoutError:
-        # Fallback về tìm kiếm SQL DB truyền thống nếu VectorDB lag
-        return await sql_database_fallback(query)</code></pre>
+        # Fallback về tìm kiếm keyword/SQL truyền thống nếu VectorDB lag
+        return await keyword_fallback(query)</code></pre>
         </div>
       </article>
 
@@ -1167,12 +1177,12 @@ async def test_retrieval_recall_metric():
         </div>
         <div class="body">
           <ul class="mono-list">
-            <li><b>No answer</b>Chunk quá lớn/nhỏ, query mismatch, filter sai, index stale.</li>
-            <li><b>Wrong answer</b>Retrieve nhầm version, context noise, prompt không bắt citation.</li>
-            <li><b>Hallucination</b>Context thiếu, model dùng prior knowledge, temperature cao.</li>
-            <li><b>Slow</b>Top_k quá lớn, rerank đắt, không cache, index chưa tối ưu.</li>
-            <li><b>Leak data</b>ACL filter sau retrieval, metadata thiếu tenant/user group.</li>
-            <li><b>Prompt injection</b>Retrieved doc chứa lệnh độc hại làm model bỏ policy.</li>
+            <li><b>No answer</b> Chunk quá lớn/nhỏ, query mismatch, filter sai, index stale.</li>
+            <li><b>Wrong answer</b> Retrieve nhầm version, context noise, prompt không bắt citation.</li>
+            <li><b>Hallucination</b> Context thiếu, model dùng prior knowledge, temperature cao.</li>
+            <li><b>Slow</b> Top_k quá lớn, rerank đắt, không cache, index chưa tối ưu.</li>
+            <li><b>Leak data</b> ACL filter sau retrieval, metadata thiếu tenant/user group.</li>
+            <li><b>Prompt injection</b> Retrieved doc chứa lệnh độc hại làm model bỏ policy.</li>
           </ul>
         </div>
       </article>
@@ -1187,15 +1197,15 @@ async def test_retrieval_recall_metric():
         </div>
         <div class="body">
           <ul class="checklist">
-            <li><b>Data contract</b>Định nghĩa nguồn dữ liệu, owner, update frequency, retention.</li>
-            <li><b>Access control</b>Tenant/user/group filter nằm trong retrieval path.</li>
-            <li><b>Index jobs</b>Incremental update, retry, idempotency, delete handling.</li>
-            <li><b>Observability</b>Trace load -> split -> retrieve -> rerank -> generate; log token/cost/latency.</li>
-            <li><b>Eval suite</b>Golden questions, no-answer tests, regression threshold.</li>
-            <li><b>Citations</b>Lưu source id, page/section, chunk id; UI cho người dùng mở nguồn.</li>
-            <li><b>Fallbacks</b>Khi context yếu: ask clarification, say unknown, escalate to search/tool.</li>
-            <li><b>Cost controls</b>Cache embeddings, cap top_k, budget rerank, summarize context khi cần.</li>
-            <li><b>Safety</b>Chặn prompt injection, PII leakage, unsafe tool calls, data exfiltration.</li>
+            <li><b>Data contract</b> Định nghĩa nguồn dữ liệu, owner, update frequency, retention.</li>
+            <li><b>Access control</b> Tenant/user/group filter nằm trong retrieval path.</li>
+            <li><b>Index jobs</b> Incremental update, retry, idempotency, delete handling.</li>
+            <li><b>Observability</b> Trace load -> split -> retrieve -> rerank -> generate; log token/cost/latency.</li>
+            <li><b>Eval suite</b> Golden questions, no-answer tests, regression threshold.</li>
+            <li><b>Citations</b> Lưu source id, page/section, chunk id; UI cho người dùng mở nguồn.</li>
+            <li><b>Fallbacks</b> Khi context yếu: ask clarification, say unknown, escalate to search/tool.</li>
+            <li><b>Cost controls</b> Cache embeddings, cap top_k, budget rerank, summarize context khi cần.</li>
+            <li><b>Safety</b> Chặn prompt injection, PII leakage, unsafe tool calls, data exfiltration.</li>
           </ul>
         </div>
       </article>
